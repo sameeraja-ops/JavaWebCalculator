@@ -13,8 +13,9 @@ pipeline{
         }
        stage("deploy"){
          steps{
-           sshagent(['deploy-user'])
+           sshagent(['deploy-user']) {
             sh 'scp -o StricyKeyHostChecking=no /var/lib/jenkins/workspace/jenkins_pipelines_master/target centos@18.216.222.122:/home/centos/apache-tomcat-7.0.94/webapps'
+           }
          }
        }
    }
