@@ -1,3 +1,4 @@
+def var
 pipeline{
   agent any
   //environment{
@@ -10,9 +11,11 @@ pipeline{
            sh "mvn clean package"
          }
         }
-       stage("test"){
+       stage("deploy"){
          steps{
-           echo "Testing the application"
+           script{
+              var = deployApp()
+           }
            }
          }
    }
