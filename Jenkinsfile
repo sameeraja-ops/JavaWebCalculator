@@ -13,11 +13,10 @@ pipeline{
         }
        stage("deploy"){
          steps{
-           script{
-              var = deployApp()
-           }
-           }
+           sshagent(['deploy-user'])
+            sh 'scp   -o StricyKeyHostChecking=no webapps/target/webapp.war centos@18.216.222.122:/home/centos/apache-tomcat-7.0.94/webapps
          }
+       }
    }
  }  
         
