@@ -6,8 +6,7 @@ pipeline{
        stage("build"){
          steps{
             withcredentials([
-               usernamePassword((credentialsId : 'server-credentials', usernameVariable : Username, passwordVariable : Password))
-              ])
+               usernamePassword(credentialsId: 'server-credentials', usernameVariable: Username, passwordVariable: Password)])
            {
            sh "mvn install"
            sh "mvn clean package"
