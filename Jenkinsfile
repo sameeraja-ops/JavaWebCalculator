@@ -1,4 +1,4 @@
-def var
+
 pipeline{
   agent any
     stages {
