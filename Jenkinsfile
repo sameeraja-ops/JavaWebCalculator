@@ -11,7 +11,7 @@ pipeline{
        stage("deploy"){
          steps{
            sshagent(['deploy-user']) {
-            sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/jenkins_pipelines_master/target/WebAppCal-0.0.6.war centos@18.216.222.122:~/"
+            sh "scp /var/lib/jenkins/workspace/jenkins_pipelines_master/target/WebAppCal-0.0.6.war centos@18.216.222.122:~/"
            }
          }
        }
